@@ -21,6 +21,27 @@
       ],
       "deko3d_glsl_sha256": "766bb63bd56d20312752afe99c1463a4a4735636041c2c5e32c0767a77a43f19",
       "deko3d_shaders_sha256": "223051f3842c29f8e31a715b6dd0e62144aa88d7cc2b6b0c9f3c34f87c3373b1"
+    },
+    {
+      "edition": "Xbox 360 disc, PAL, title update 2",
+      "xex_sha256": "124d812f75f465d393134a84792412bf01a135ea1d6ea4eafef82aa4a5f739c4",
+      "xexp_sha256": "142443cf64d31b89cc647bb33104bbfce6021d06e3c700a914a2ee65281bad65",
+      "nro": "kameo-nx.nro",
+      "nro_sha256": "cc2f0d4dcb21590497c3c586af785ed8c67ec6e77293d26e16124aa48a222e2a",
+      "files": [
+        {
+          "path": "kameo.toml",
+          "source": "kameo.toml",
+          "sha256": "885485910b6aa38a8046217acb301f2a57fe0d03dd2ef62d0229b5f035b1635a"
+        },
+        {
+          "path": "pipeline_list.bin",
+          "source": "pipeline_list.bin",
+          "sha256": "a068f1c257f81629b1421acc659377afa4b37ca00ff7ff393c96702786ac7f0c"
+        }
+      ],
+      "deko3d_glsl_sha256": "766bb63bd56d20312752afe99c1463a4a4735636041c2c5e32c0767a77a43f19",
+      "deko3d_shaders_sha256": "223051f3842c29f8e31a715b6dd0e62144aa88d7cc2b6b0c9f3c34f87c3373b1"
     }
   ]
 }

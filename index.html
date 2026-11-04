@@ -67,7 +67,7 @@
     <label class="button" for="folder">Choose an extracted folder</label>
     <input id="iso" type="file" accept=".iso">
     <input id="folder" type="file" webkitdirectory>
-    <p class="note">Your Xbox 360 disc as an <code>.iso</code>, or the folder it was extracted to (with
+    <p class="note">Your Xbox 360 disc (NTSC-U or PAL) as an <code>.iso</code>, or the folder it was extracted to (with
       <code>default.xex</code> and the <code>.lvl</code> files in it).</p>
     <div class="chosen" id="chosen">Nothing chosen yet.</div>
     <div class="detected" id="detected" hidden></div>
@@ -77,9 +77,10 @@
     <h2>2. Choose title update 2 (and the DLC)</h2>
     <label class="button" for="packages">Choose the packages</label>
     <input id="packages" type="file" multiple>
-    <p class="note">kameo-nx is the updated game: choose title update 2's package (<code>TU_16L61UI_0000000000000.00000000000G1</code>,
-      the file inside the update's folder <code>6C8AE566</code>). Add the DLC packs at the same time if you have them: the
-      Add-On, Design-A-Skin, Power and Winter Warrior packs. All are read in place.</p>
+    <p class="note">kameo-nx is the updated game: choose title update 2's package for your disc (NTSC-U:
+      <code>TU_16L61UI_0000000000000.00000000000G1</code>, inside the update's folder <code>6C8AE566</code>; PAL:
+      <code>TU_16L61UI_000000K000000.00000000000G5</code>, folder <code>45BB5521</code>). Add the DLC packs at the same time
+      if you have them: the Add-On, Design-A-Skin, Power and Winter Warrior packs. All are read in place.</p>
     <div class="chosen" id="packages-chosen">Nothing chosen yet.</div>
     <div class="detected" id="packages-detected" hidden></div>
   </section>
