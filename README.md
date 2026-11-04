@@ -7,10 +7,11 @@ not uploaded, and none of the game's files come with kameo-nx.
 
 ## What you need
 
-- Your **Xbox 360 disc** of Kameo: Elements of Power (NTSC-U) as an `.iso` image, or the folder it was extracted to, with
-  `default.xex` and the `.lvl` files in it.
-- **Title update 2**: its Xbox 360 package, the file `TU_16L61UI_0000000000000.00000000000G1` (in the update's `6C8AE566`
-  folder). kameo-nx is the updated game, so this is required.
+- Your **Xbox 360 disc** of Kameo: Elements of Power (NTSC-U or PAL) as an `.iso` image, or the folder it was extracted to,
+  with `default.xex` and the `.lvl` files in it.
+- **Title update 2** for that disc, its Xbox 360 package: `TU_16L61UI_0000000000000.00000000000G1` (in the update's `6C8AE566`
+  folder) for the NTSC-U disc, `TU_16L61UI_000000K000000.00000000000G5` (folder `45BB5521`) for the PAL disc. kameo-nx is
+  the updated game, so this is required.
 - Optional: the **DLC** packs (Add-On, Design-A-Skin, Power and Winter Warrior).
 - A desktop **Chromium browser** (Chrome, Edge, Brave...), about 8 GB of free memory and 7 GB of free disk space for the
   download.
@@ -52,8 +53,8 @@ and the game writes it again at the next start.
 - Crash logs are written to `switch/kameo-nx/logs/rex/rex_crash.log`.
 - For a bug report, open `kameo.toml`, remove the `#` in front of `log_level = "info"`, play until the problem happens, and send
   the `switch/kameo-nx/logs/` folder.
-- The page says the game or the update is not supported: kameo-nx 1.0.0 supports the NTSC-U Xbox 360 disc with title update 2
-  only.
+- The page says the game or the update is not supported: kameo-nx supports the NTSC-U and the PAL Xbox 360 discs, each with
+  its own title update 2, and nothing else. The update must be the one of your disc's media ID.
 
 ## How it works
 
