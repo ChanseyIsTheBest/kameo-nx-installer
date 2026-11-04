@@ -1,0 +1,2 @@
+# Store every file exactly as tested: manifest.json names SHA-256s, and the page serves these bytes.
+* -text
