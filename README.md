@@ -1,6 +1,6 @@
 # kameo-nx-installer
 
-Version 1.0.0, for **kameo-nx 1.0.0**: Kameo: Elements of Power on the Nintendo Switch (homebrew), by ChanseyIsTheBest.
+Version 1.0.2, for **kameo-nx 1.0.2**: Kameo: Elements of Power on the Nintendo Switch (homebrew), by ChanseyIsTheBest.
 
 This page makes the Switch package from **your own copy** of the game. It runs entirely in your browser: your game files are
 not uploaded, and none of the game's files come with kameo-nx.
@@ -52,7 +52,7 @@ and the game writes it again at the next start.
 - Crash logs are written to `switch/kameo-nx/logs/rex/rex_crash.log`.
 - For a bug report, open `kameo.toml`, remove the `#` in front of `log_level = "info"`, play until the problem happens, and send
   the `switch/kameo-nx/logs/` folder.
-- The page says the game or the update is not supported: kameo-nx 1.0.0 supports the NTSC-U Xbox 360 disc with title update 2
+- The page says the game or the update is not supported: kameo-nx 1.0.2 supports the NTSC-U Xbox 360 disc with title update 2
   only.
 
 ## How it works
