@@ -1,6 +1,6 @@
 # kameo-nx-installer
 
-Version 1.0.2, for **kameo-nx 1.0.2**: Kameo: Elements of Power on the Nintendo Switch (homebrew), by ChanseyIsTheBest.
+Version 1.0.1, for **kameo-nx 1.0.1**: Kameo: Elements of Power on the Nintendo Switch (homebrew), by ChanseyIsTheBest.
 
 This page makes the Switch package from **your own copy** of the game. It runs entirely in your browser: your game files are
 not uploaded, and none of the game's files come with kameo-nx.
