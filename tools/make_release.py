@@ -2,13 +2,15 @@
 """kameo-nx-installer (from renut-nx-webinstaller): fills release/ from a kameo-nx distribution build.
 
     python tools/make_release.py --nro <distribution NRO> --banjo <kameo-nx root> --xex <the game's default.xex>
-        --xexp <title update 2's default.xexp>
+        --xexp <title update 2's default.xexp> [--edition <name> <default.xex> <default.xexp> ...]
         [--toml <renut.toml>] [--pipelines <pipeline_list.bin>] [--reference <folder of test/full_node.mjs's output>]
 
 The NRO must be a distribution build (banjo-nx: tools/renut_switch_shader_cache.py --only and
 tools/deko3d_shader_package.py --only --raw): it carries none of the game's shaders but the ones the game makes at
 runtime. release/ then holds the NRO, its settings and pipeline list, the translator's shader_common.h, and
-manifest.json naming each file's SHA-256 and the supported default.xex (its SHA-256 only). With --reference, the
+manifest.json naming each file's SHA-256 and the supported default.xex (its SHA-256 only): --xex and --xexp are the
+NTSC-U disc's, and each --edition adds another disc's pair, which the same NRO runs (2026-11-04: the PAL disc, whose
+title update 2 is the same build). With --reference, the
 SHA-256 of the deko3d_glsl.bin and deko3d_shaders.bin a run of the whole build made (they are the same bytes in every
 browser): the page then says whether its own are identical. release/variants.txt is written by banjo-nx's
 tools/deko3d_variant_cache.py --export-variants.
@@ -36,6 +38,7 @@ def main():
     ap.add_argument('--banjo', required=True)
     ap.add_argument('--xex', required=True)
     ap.add_argument('--xexp', required=True)  # 2026-11-01: title update 3's default.xexp (the page checks it)
+    ap.add_argument('--edition', nargs=3, action='append', default=[], metavar=('NAME', 'XEX', 'XEXP'))
     ap.add_argument('--toml')
     ap.add_argument('--pipelines')
     ap.add_argument('--reference')
@@ -49,22 +52,25 @@ def main():
                'shader_common.h')]
     for src, name in copies:
         shutil.copyfile(src, os.path.join(release, name))
-    build = {
-        'edition': 'Xbox 360 disc, NTSC-U, title update 2',
-        'xex_sha256': sha256(a.xex),
-        'xexp_sha256': sha256(a.xexp),
-        'nro': 'kameo-nx.nro',
-        'nro_sha256': sha256(os.path.join(release, 'kameo-nx.nro')),
-        'files': [{'path': name, 'source': name, 'sha256': sha256(os.path.join(release, name))}
-                  for name in ('kameo.toml', 'pipeline_list.bin')],
-    }
-    if a.reference:
-        build['deko3d_glsl_sha256'] = sha256(os.path.join(a.reference, 'deko3d_glsl.bin'))
-        build['deko3d_shaders_sha256'] = sha256(os.path.join(a.reference, 'deko3d_shaders.bin'))
+    builds = []
+    for edition, xex, xexp in [('Xbox 360 disc, NTSC-U, title update 2', a.xex, a.xexp)] + a.edition:
+        build = {
+            'edition': edition,
+            'xex_sha256': sha256(xex),
+            'xexp_sha256': sha256(xexp),
+            'nro': 'kameo-nx.nro',
+            'nro_sha256': sha256(os.path.join(release, 'kameo-nx.nro')),
+            'files': [{'path': name, 'source': name, 'sha256': sha256(os.path.join(release, name))}
+                      for name in ('kameo.toml', 'pipeline_list.bin')],
+        }
+        if a.reference:
+            build['deko3d_glsl_sha256'] = sha256(os.path.join(a.reference, 'deko3d_glsl.bin'))
+            build['deko3d_shaders_sha256'] = sha256(os.path.join(a.reference, 'deko3d_shaders.bin'))
+        builds.append(build)
     with open(os.path.join(release, 'manifest.json'), 'w', encoding='utf-8') as f:
-        json.dump({'version': 1, 'builds': [build]}, f, indent=2)
+        json.dump({'version': 1, 'builds': builds}, f, indent=2)
         f.write('\n')
-    print(json.dumps(build, indent=2))
+    print(json.dumps(builds, indent=2))
 
 
 if __name__ == '__main__':
